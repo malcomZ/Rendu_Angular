@@ -1,0 +1,9 @@
+<h2>{{ title }}</h2>
+
+<ul class="albums">
+  <li *ngFor="let track of tracks">
+    <a routerLink="/detail/{{track.id}}">
+      <span class="badge">{{track.track_number}}</span> {{track.name}}
+    </a>
+  </li>
+</ul>
