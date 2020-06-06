@@ -11,6 +11,7 @@ import {MessageService} from "../service/message.service";
 export class AlbumsComponent implements OnInit {
 
   title: string;
+  img: string;
   tracks: Track[];
 
   constructor(private albumService: AlbumService) {
@@ -25,6 +26,8 @@ export class AlbumsComponent implements OnInit {
       .subscribe(data => {
         this.title = data['name'];
         this.tracks = data['tracks']['items'];
+        this.albumService.setAlbumImg(data['images'][1]['url']);
+        this.img = this.albumService.getAlbumImg();
       });
   }
 }

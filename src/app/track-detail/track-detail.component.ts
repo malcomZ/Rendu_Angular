@@ -12,12 +12,16 @@ import { AlbumService }  from '../service/album.service';
 })
 export class TrackDetailComponent implements OnInit {
   track: Track;
+  albumImg = '';
 
   constructor(
     private route: ActivatedRoute,
     private albumService: AlbumService,
     private location: Location
-  ) {}
+  ) {
+    this.albumImg = albumService.getAlbumImg();
+    console.log(this.albumImg);
+  }
 
   ngOnInit(): void {
     this.getTrack();

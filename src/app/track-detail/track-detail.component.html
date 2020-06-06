@@ -1,6 +1,7 @@
 <div *ngIf="track">
 
   <h2 style="text-align: center;">{{track.name | uppercase}} Details</h2>
+  <img *ngIf="albumImg" class="center" src="{{ albumImg }}">
   <div style="text-align: center;"><audio controls src="{{track.preview_url}}"><code>audio</code> element.</audio> </div>
   <div>
     <label>name:

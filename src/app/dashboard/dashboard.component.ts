@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
       .subscribe(data => {
         this.title = data['name'];
         this.tracks = data['tracks']['items'].slice(1, 5);
+        this.albumService.setAlbumImg(data['images'][1]['url']);
       });
   }
 }

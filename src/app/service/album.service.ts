@@ -10,7 +10,8 @@ import {Track} from "../models/track.model";
 })
 export class AlbumService {
   private spotifyUrl = 'https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy?market=FR';  // URL to web api
-  private oAuthToken = 'BQDhyzKFO-erK3NcoCdJxjxflvKNqWoaYBzIBiqcW07-4qCRL_JJDA_km2utadKddmQymV_zYdfZJLXGJgbq4LZvO5-qnnazcDn1QfZHn26mr14h9isNDIsQpgI7IgV2Bf1PkQoKXsTK'; // https://developer.spotify.com/console/get-album/?id=0sNOF9WDwhWunNAHPD3Baj&market=FR
+  private oAuthToken = 'BQDmNkFrTZm8TSsZIazE_G7ubIQp3YsimI5570ZMr6usWN-7qmY5qNiY1lw1_RxQaCA2eIXbled6cv87Y8LLW09_f1H56PEFRdr9_EA5CHLRWxeb_OzdGvJAQ6NxB33R-uRnFQD_5Rc6'; // https://developer.spotify.com/console/get-album/?id=0sNOF9WDwhWunNAHPD3Baj&market=FR
+  private albumImg = '';
 
   constructor(
     private http: HttpClient,
@@ -33,5 +34,14 @@ export class AlbumService {
       'Authorization': 'Bearer ' + this.oAuthToken
     });
     return this.http.get<Track>('https://api.spotify.com/v1/tracks/' + id + '?market=FR', {headers: headers});
+  }
+
+  setAlbumImg(url: string)
+  {
+    this.albumImg = url;
+  }
+
+  getAlbumImg() {
+    return this.albumImg;
   }
 }
